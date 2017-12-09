@@ -1,7 +1,7 @@
 
 /*!
  * vue-conditional-attrs
- * (c) Resoursales
+ * (c) FL3N
  */
 
 (function () {
