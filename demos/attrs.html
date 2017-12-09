@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Attributes</title>
+	<style>
+		li:after {
+			content: attr(data-text);
+		}
+	</style>
+</head>
+<body>
+	<div id="root">
+		<ul>
+			<cn-attrs tag="li" v-for="(item, index) in list" :attrs="item" key="index">[data-text]: </cn-attrs>
+		</ul>
+	</div>
+
+	<script src="./../node_modules/vue/dist/vue.js"></script>
+	<script src="./../dist/vue-conditional-attrs.js"></script>
+	<script>
+	new Vue({
+		el: '#root',
+		data: {
+			list: [
+				{
+					'data-text': {
+						value: 'has',
+						if: true
+					}
+				},
+				{
+					'data-text': {
+						value: 'has',
+						if: false
+					}
+				},
+				{
+					'data-text': 'has'
+				},
+				{
+					'data-text': ''
+				},
+			]
+		}
+	});
+	</script>
+</body>
+</html>

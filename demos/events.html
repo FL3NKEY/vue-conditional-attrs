@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Events</title>
+</head>
+<body>
+	<div id="root">
+		<input type="text" ref="input">
+		<cn-attrs tag="button" type="button" :on="events">Focus input</cn-attrs>
+		<p>
+			<button type="button" @click="toggleState">Toggle event state</button>
+		</p>
+	</div>
+
+	<script src="./../node_modules/vue/dist/vue.js"></script>
+	<script src="./../dist/vue-conditional-attrs.js"></script>
+	<script>
+	new Vue({
+		el: '#root',
+		data: function() {
+			return {
+				events: {
+					click: {
+						event: this.focusInput,
+						if: true
+					}
+				}
+			}
+		},
+		methods: {
+			focusInput() {
+				this.$refs['input'].focus();
+			},
+			toggleState() {
+				this.events.click.if = !this.events.click.if;
+			}
+		}
+	});
+	</script>
+</body>
+</html>

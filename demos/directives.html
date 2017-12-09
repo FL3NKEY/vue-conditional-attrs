@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Directives</title>
+</head>
+<body>
+	<div id="root">
+		<cn-attrs tag="button" type="button" :directives="directives" @click="toggleState">toggle directive state</cn-attrs>
+	</div>
+	<p>Directive state: <span id="directive-state"></span></p>
+
+	<script src="./../node_modules/vue/dist/vue.js"></script>
+	<script src="./../dist/vue-conditional-attrs.js"></script>
+	<script>
+	Vue.directive('my-directive', {
+		bind: function() {
+			document.getElementById('directive-state').innerText = 'binded';
+		},
+		unbind: function() {
+			document.getElementById('directive-state').innerText = 'unbinded';
+		}
+	});
+
+	new Vue({
+		el: '#root',
+		data: {
+			directives: {
+				'my-directive': {
+					value: 'value',
+					if: true
+				}
+				//also
+				/*
+				'me-directive': true
+				*/
+			}
+		},
+		methods: {
+			toggleState() {
+				this.directives['my-directive'].if = !this.directives['my-directive'].if;
+			}
+		}
+	});
+	</script>
+</body>
+</html>

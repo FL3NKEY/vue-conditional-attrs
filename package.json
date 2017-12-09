@@ -1,0 +1,37 @@
+{
+	"name": "vue-conditional-attrs",
+	"version": "0.0.1",
+	"description": "A Vue.js component for conditional rendering attributes and directives.",
+	"main": "dist/vue-conditional-attrs.min.js",
+	"scripts": {
+		"dev": "gulp",
+		"production": "gulp -p"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FL3NKEY/vue-conditional-attrs.git"
+	},
+	"keywords": [
+		"vue",
+		"conditional",
+		"attributes",
+		"attrs",
+		"direcives"
+	],
+	"author": "Resoursales",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/FL3NKEY/vue-conditional-attrs/issues"
+	},
+	"homepage": "https://github.com/FL3NKEY/vue-conditional-attrs#readme",
+	"devDependencies": {
+		"babel-core": "^6.26.0",
+		"browser-sync": "^2.18.13",
+		"gulp": "^3.9.1",
+		"gulp-babel": "^7.0.0",
+		"gulp-coffee": "^2.3.5",
+		"gulp-rename": "^1.2.2",
+		"gulp-uglify": "^3.0.0",
+		"vue": "^2.5.9"
+	}
+}
