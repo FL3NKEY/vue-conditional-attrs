@@ -38,11 +38,11 @@ VueConditionalAttrs.install = (Vue) ->
 				if state
 					attrs[key] = value
 
-			#events
-			events = {}
+			#listeners
+			listeners = {}
 			#default listeners
 			for own key, data of @$listeners
-				events[key] = data
+				listeners[key] = data
 			#
 			for own key, data of @on
 				event = data
@@ -56,7 +56,7 @@ VueConditionalAttrs.install = (Vue) ->
 						state = false
 
 				if state
-					events[key] = event
+					listeners[key] = event
 			
 			#directives
 			directives = []
@@ -79,7 +79,7 @@ VueConditionalAttrs.install = (Vue) ->
 			##
 			createElement @tag,
 				attrs: attrs
-				on: events
+				on: listeners
 				directives: directives,
 				@$slots.default
 

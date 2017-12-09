@@ -32,7 +32,7 @@
   VueConditionalAttrs.install = function (Vue) {
     return Vue.component('cn-attrs', {
       render: function (createElement) {
-        var attrs, data, directives, event, events, key, ref, ref1, ref2, ref3, state, value;
+        var attrs, data, directives, event, key, listeners, ref, ref1, ref2, ref3, state, value;
         attrs = {};
         ref = this.attrs;
         for (key in ref) {
@@ -52,12 +52,12 @@
             attrs[key] = value;
           }
         }
-        events = {};
+        listeners = {};
         ref1 = this.$listeners;
         for (key in ref1) {
           if (!hasProp.call(ref1, key)) continue;
           data = ref1[key];
-          events[key] = data;
+          listeners[key] = data;
         }
         ref2 = this.on;
         for (key in ref2) {
@@ -74,7 +74,7 @@
             }
           }
           if (state) {
-            events[key] = event;
+            listeners[key] = event;
           }
         }
         directives = [];
@@ -101,7 +101,7 @@
         }
         return createElement(this.tag, {
           attrs: attrs,
-          on: events,
+          on: listeners,
           directives: directives
         }, this.$slots["default"]);
       },

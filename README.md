@@ -108,21 +108,21 @@ data: function() {
 //Vue instance
 ```
 
-### Events
-Accept object of events.
+### Listeners
+Accept object of listeners.
 <br>
 **Type:** `Object`
 <br>
 **Attribute:** `on`
 ``` html
-<cn-attrs :on="events"></cn-attrs>
+<cn-attrs :on="listeners"></cn-attrs>
 ```
 ``` js
 //Vue instance
 data: function() {
   return {
-    events: {
-      'event-name': { //example: click
+    listeners: {
+      'listener-name': { //example: click
         event: Function,
         if: Boolean
       }
@@ -136,8 +136,8 @@ OR
 //Vue instance
 data: function() {
   return {
-    events: {
-      'event-name': Function /* or false */
+    listeners: {
+      'listener-name': Function /* or false */
     }
   }
 }

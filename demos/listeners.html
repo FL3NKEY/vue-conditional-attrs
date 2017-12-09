@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Events</title>
+	<title>Listeners</title>
 </head>
 <body>
 	<div id="root">
 		<input type="text" ref="input">
-		<cn-attrs tag="button" type="button" :on="events">Focus input</cn-attrs>
+		<cn-attrs tag="button" type="button" :on="listeners">Focus input</cn-attrs>
 		<p>
-			<button type="button" @click="toggleState">Toggle event state</button>
+			<button type="button" @click="toggleState">Toggle listener state</button>
 		</p>
 	</div>
 
@@ -22,7 +22,7 @@
 		el: '#root',
 		data: function() {
 			return {
-				events: {
+				listeners: {
 					click: {
 						event: this.focusInput,
 						if: true
@@ -35,7 +35,7 @@
 				this.$refs['input'].focus();
 			},
 			toggleState() {
-				this.events.click.if = !this.events.click.if;
+				this.listeners.click.if = !this.listeners.click.if;
 			}
 		}
 	});
