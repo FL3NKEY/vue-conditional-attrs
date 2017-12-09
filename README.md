@@ -30,7 +30,10 @@ Accept tag name or component name.
 <br>
 **Default:** `div`
 ``` html
-<cn-attrs tag="{tag name or component name}"></cn-attrs>
+<cn-attrs tag="tag name or component name"></cn-attrs>
+<!---->
+<cn-attrs tag="h1"></cn-attrs>
+<cn-attrs tag="my-awesome-component"></cn-attrs>
 ```
 
 ### Attributes
@@ -48,8 +51,8 @@ data: function() {
   return {
     attrs: {
       'attribute-name': {
-        value: {value},
-        if: {true or false}
+        value: /* value */,
+        if: Boolean
       }
     }
   }
@@ -62,7 +65,7 @@ OR
 data: function() {
   return {
     attrs: {
-      'attribute-name': {true, false or value}
+      'attribute-name': Boolean /* or value */
     }
   }
 }
@@ -84,8 +87,8 @@ data: function() {
   return {
     directives: {
       'directive-name': {
-        value: {value},
-        if: {true or false}
+        value: /* value */,
+        if: Boolean
       }
     }
   }
@@ -98,7 +101,7 @@ OR
 data: function() {
   return {
     directives: {
-      'directive-name': {true or false}
+      'directive-name': Boolean
     }
   }
 }
@@ -120,8 +123,8 @@ data: function() {
   return {
     events: {
       'event-name': { //example: click
-        event: {function},
-        if: {true or false}
+        event: Function,
+        if: Boolean
       }
     }
   }
@@ -134,7 +137,7 @@ OR
 data: function() {
   return {
     events: {
-      'event-name': {function or false}
+      'event-name': Function /* or false */
     }
   }
 }
